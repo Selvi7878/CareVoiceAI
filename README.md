@@ -19,7 +19,7 @@ The system combines voice interaction, retrieval pipelines, and evaluation frame
 
 ## Architecture
 
-![CareVoice AI Architecture](src/backend/doc/carevoiceai-architecture-diagram.png)
+![CareVoice AI Architecture](docs/carevoiceai-architecture-diagram.png)
 
 > End-to-end system architecture showing voice ingestion, RAG pipeline, safety layer, evaluation, and observability.
 
@@ -179,24 +179,32 @@ Triggers Twilio hang-up.
 ## Project Structure
 
 ```
-backend/
-├── main.py
-├── api/
-├── workflows/
-├── rag/
-├── agents/
-├── utils/
-├── eval/
-├── otel/
-└── doc/
-
-dashboard/
-├── src/
-│   ├── components/
-│   └── charts/
-
-docs/
-└── screenshots/
+carevoice-ai/
+├── backend/
+│   ├── main.py
+│   ├── api/
+│   ├── workflows/
+│   ├── rag/
+│   ├── agents/
+│   ├── utils/
+│   ├── eval/
+│   └── otel/
+├── dashboard/
+│   └── src/
+│       ├── components/
+│       └── charts/
+├── docs/
+│   ├── screenshots/
+│   │   ├── wellness.png
+│   │   ├── rag.png
+│   │   ├── pipeline.png
+│   │   └── observability.png
+│   ├── carevoiceai-architecture-diagram.png
+│   └── CareVoice_AI.pptx
+├── .env.example
+├── .gitignore
+├── docker-compose.yml
+└── README.md
 ```
 
 ---
