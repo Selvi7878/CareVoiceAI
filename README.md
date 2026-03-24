@@ -21,53 +21,62 @@ The system combines voice interaction, retrieval pipelines, and evaluation frame
 
 ![CareVoice AI Architecture](src/backend/doc/carevoiceai-architecture-diagram.png)
 
+> End-to-end system architecture showing voice ingestion, RAG pipeline, safety layer, evaluation, and observability.
+
 ---
 
 ## System Flow (Actual Implementation)
 
-1. User initiates a call via Twilio  
-2. Audio is streamed to FastAPI via webhook/WebSocket  
-3. Patient speech is processed into text  
-4. System checks for **end-of-call intent (bye / thank you)**  
+1. User initiates a call via Twilio
+2. Audio is streamed to FastAPI via webhook/WebSocket
+3. Patient speech is processed into text
+4. System checks for **end-of-call intent (bye / thank you)**
 5. Query enters RAG pipeline:
    - Embedding generation (Azure OpenAI)
    - Hybrid retrieval (Azure AI Search)
-6. Retrieved context is passed to LLM  
-7. LLM generates response  
-8. Azure Content Safety validates output  
-9. Response returned via Twilio voice  
-10. OpenTelemetry logs traces and metrics  
-11. Post-call evaluation computes LLM quality metrics  
+6. Retrieved context is passed to LLM
+7. LLM generates response
+8. Azure Content Safety validates output
+9. Response returned via Twilio voice
+10. OpenTelemetry logs traces and metrics
+11. Post-call evaluation computes LLM quality metrics
 
 ---
 
 ## Technology Stack (Live System)
 
 ### Backend
+
 - FastAPI
 - Python (async + httpx)
 
 ### AI & RAG
+
 - Azure OpenAI (GPT-4o-mini)
 - Azure OpenAI Embeddings
 - Azure AI Search (hybrid retrieval)
 
 ### Voice
+
 - Twilio Voice API
 - ConversationRelay (streaming)
 
 ### Safety
+
 - Azure AI Content Safety
 
 ### Data & Storage
+
 - Azure Cosmos DB (patient + session data)
 
 ### Observability
+
 - OpenTelemetry (OTLP exporter)
 - Azure Application Insights
 - Aspire Dashboard
 
 ### Evaluation
+
 - Azure AI Evaluation (`azure-ai-evaluation`)
   - groundedness
   - relevance
@@ -75,6 +84,7 @@ The system combines voice interaction, retrieval pipelines, and evaluation frame
   - fluency
 
 ### Frontend Dashboard
+
 - React
 - Vite
 - TypeScript
@@ -85,57 +95,60 @@ The system combines voice interaction, retrieval pipelines, and evaluation frame
 ## Dashboard
 
 ### Wellness Monitoring
+
 ![Wellness Dashboard](docs/screenshots/wellness.png)
 
 Tracks:
+
 - Nutrition
 - Physical
 - Emotional
-- Social  
+- Social
+
 Includes radar visualization + live transcript
 
----
-
 ### RAG Governance & Evaluation
+
 ![RAG Governance](docs/screenshots/rag.png)
 
 - Groundedness, relevance, coherence, fluency
 - Citation tracking
 - Safety checks
 
----
-
 ### Pipeline View
+
 ![Pipeline](docs/screenshots/pipeline.png)
 
-- Triage → Retrieval → Response → Safety → Alert  
-(Currently implemented procedurally)
-
----
+- Triage → Retrieval → Response → Safety → Alert
+- Currently implemented procedurally
 
 ### Observability
+
 ![Observability](docs/screenshots/observability.png)
 
-- OpenTelemetry traces  
-- Performance metrics  
-- Safety + evaluation spans  
+- OpenTelemetry traces
+- Performance metrics
+- Safety + evaluation spans
 
 ---
 
 ## Key Capabilities
 
 ### Retrieval-Augmented Generation (RAG)
-- Hybrid retrieval using Azure AI Search  
-- Responses grounded in data  
+
+- Hybrid retrieval using Azure AI Search
+- Responses grounded in data
 
 ### Safety Enforcement
-- Azure Content Safety on every turn  
+
+- Azure Content Safety on every turn
 - Guardrails:
-  - medical advice restriction  
-  - PHI awareness  
-  - groundedness checks  
+  - Medical advice restriction
+  - PHI awareness
+  - Groundedness checks
 
 ### Observability
+
 - Tracked spans:
   - `carevoice.start_call`
   - `carevoice.handle_utterance`
@@ -144,27 +157,28 @@ Includes radar visualization + live transcript
   - `evaluation_run`
 
 ### LLM Evaluation
-- Groundedness  
-- Relevance  
-- Coherence  
-- Fluency  
+
+- Groundedness
+- Relevance
+- Coherence
+- Fluency
 
 ### Intelligent Call Termination
+
 Detects:
-- “bye”
-- “thank you”
-- “that’s all”
-- fuzzy speech like “buh”
+
+- "bye"
+- "thank you"
+- "that's all"
+- fuzzy speech like "buh"
 
 Triggers Twilio hang-up.
 
-## Architecture
-
-![CareVoice AI Architecture](src/backend/doc/carevoiceai-architecture-diagram.png)
-
-> End-to-end system architecture showing voice ingestion, RAG pipeline, safety layer, evaluation, and observability.
 ---
+
 ## Project Structure
+
+```
 backend/
 ├── main.py
 ├── api/
@@ -178,47 +192,55 @@ backend/
 
 dashboard/
 ├── src/
-├── components/
-└── charts/
+│   ├── components/
+│   └── charts/
 
 docs/
 └── screenshots/
-
+```
 
 ---
 
 ## Running Locally
 
 ```bash
+# Backend
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
+```
+
+```bash
+# Dashboard
 cd dashboard
 npm install
 npm run dev
-Design Principles
-Grounded Responses
+```
 
-Outputs are backed by retrieved data.
+---
 
-Safety by Default
+## Design Principles
 
-All responses pass safety checks.
+**Grounded Responses** — Outputs are backed by retrieved data.
 
-Observability First
+**Safety by Default** — All responses pass safety checks.
 
-Everything is traceable.
+**Observability First** — Everything is traceable.
 
-Deterministic Control
+**Deterministic Control** — Explicit logic ensures reliability.
 
-Explicit logic ensures reliability.
+---
 
-Future Enhancements
-Full Microsoft Agent Framework orchestration
-Multi-agent routing
-Personalization memory
-Clinician escalation
-Improved evaluation pipeline
-Summary
+## Future Enhancements
+
+- Full Microsoft Agent Framework orchestration
+- Multi-agent routing
+- Personalization memory
+- Clinician escalation
+- Improved evaluation pipeline
+
+---
+
+## Summary
 
 CareVoice AI demonstrates how voice interfaces, RAG pipelines, safety systems, and observability can be combined to build trustworthy and production-ready AI systems for regulated environments.
