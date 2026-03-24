@@ -20,7 +20,7 @@ The system combines voice interaction, retrieval pipelines, and evaluation frame
 ## Architecture
 
 ### Azure Services Integration
-![Azure Architecture](backend/docs/carevoiceai-azure-architecture.svg)
+![Azure Architecture](backend/docs/carevoice_ai_azure_architecture.svg)
 
 ### System Flow
 ![System Flow](backend/docs/carevoiceai-architecture-diagram.png)
@@ -231,6 +231,22 @@ npm run dev
 
 ---
 
+## Try It Live
+
+CareVoice AI is deployed and ready to call. Experience a real AI wellness check-in conversation.
+
+**Call: 1-866-505-5395**
+
+### How it works
+
+1. Dial **1-866-505-5395** from any phone
+2. When prompted, say **"Margaret"** — this loads a full patient profile with wellness history from Cosmos DB
+3. Have a natural conversation — ask about nutrition, how you're feeling, daily activity, or social connections
+4. Say **"bye"** or **"thank you"** to end the call — intelligent call termination handles the rest
+
+> Margaret is a demo senior living alone. The system tracks her wellness across nutrition, physical, emotional, and social dimensions. Every response is grounded in retrieved data, safety-checked by Azure Content Safety, and fully traced in Application Insights.
+
+---
 ## Design Principles
 
 **Grounded Responses** — Outputs are backed by retrieved data.
