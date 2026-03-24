@@ -19,7 +19,7 @@ The system combines voice interaction, retrieval pipelines, and evaluation frame
 
 ## Architecture
 
-![CareVoice AI Architecture](docs/carevoiceai-architecture-diagram.png)
+![CareVoice AI Architecture](backend/docs/carevoiceai-architecture-diagram.png)
 
 > End-to-end system architecture showing voice ingestion, RAG pipeline, safety layer, evaluation, and observability.
 
@@ -96,7 +96,7 @@ The system combines voice interaction, retrieval pipelines, and evaluation frame
 
 ### Wellness Monitoring
 
-![Wellness Dashboard](docs/screenshots/wellness.png)
+![Wellness Dashboard](backend/docs/screenshots/wellness.png)
 
 Tracks:
 
@@ -109,7 +109,7 @@ Includes radar visualization + live transcript
 
 ### RAG Governance & Evaluation
 
-![RAG Governance](docs/screenshots/rag.png)
+![RAG Governance](backend/docs/screenshots/rag.png)
 
 - Groundedness, relevance, coherence, fluency
 - Citation tracking
@@ -117,14 +117,14 @@ Includes radar visualization + live transcript
 
 ### Pipeline View
 
-![Pipeline](docs/screenshots/pipeline.png)
+![Pipeline](backend/docs/screenshots/pipeline.png)
 
 - Triage → Retrieval → Response → Safety → Alert
 - Currently implemented procedurally
 
 ### Observability
 
-![Observability](docs/screenshots/observability.png)
+![Observability](backend/docs/screenshots/observability.png)
 
 - OpenTelemetry traces
 - Performance metrics
@@ -182,25 +182,26 @@ Triggers Twilio hang-up.
 carevoice-ai/
 ├── backend/
 │   ├── main.py
-│   ├── api/
-│   ├── workflows/
-│   ├── rag/
 │   ├── agents/
-│   ├── utils/
+│   ├── api/
+│   ├── docs/
+│   │   ├── screenshots/
+│   │   │   ├── wellness.png
+│   │   │   ├── rag.png
+│   │   │   ├── pipeline.png
+│   │   │   └── observability.png
+│   │   ├── carevoiceai-architecture-diagram.png
+│   │   └── CareVoice_AI.pptx
 │   ├── eval/
-│   └── otel/
+│   ├── otel/
+│   ├── rag/
+│   ├── tools/
+│   ├── utils/
+│   └── workflows/
 ├── dashboard/
 │   └── src/
 │       ├── components/
 │       └── charts/
-├── docs/
-│   ├── screenshots/
-│   │   ├── wellness.png
-│   │   ├── rag.png
-│   │   ├── pipeline.png
-│   │   └── observability.png
-│   ├── carevoiceai-architecture-diagram.png
-│   └── CareVoice_AI.pptx
 ├── .env.example
 ├── .gitignore
 ├── docker-compose.yml
