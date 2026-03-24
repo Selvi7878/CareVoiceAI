@@ -19,8 +19,11 @@ The system combines voice interaction, retrieval pipelines, and evaluation frame
 
 ## Architecture
 
-![CareVoice AI Architecture](backend/docs/carevoiceai-architecture-diagram.png)
+### Azure Services Integration
+![Azure Architecture](backend/docs/carevoiceai-azure-architecture.svg)
 
+### System Flow
+![System Flow](backend/docs/carevoiceai-architecture-diagram.png)
 > End-to-end system architecture showing voice ingestion, RAG pipeline, safety layer, evaluation, and observability.
 
 ---
