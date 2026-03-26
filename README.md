@@ -235,7 +235,7 @@ npm run dev
 
 CareVoice AI is deployed and ready to call. Experience a real AI wellness check-in conversation.
 
-**Call: 1-866-505-5395**
+## 📞 <span style="color:#007BFF;">Dial 1-866-505-5395 from any phone</span>
 
 ### How it works
 
@@ -261,11 +261,12 @@ CareVoice AI is deployed and ready to call. Experience a real AI wellness check-
 
 ## Future Enhancements
 
-- Full Microsoft Agent Framework orchestration
-- Multi-agent routing
-- Personalization memory
-- Clinician escalation
-- Improved evaluation pipeline
+- Full Microsoft Agent Framework orchestration  
+- Multi-agent routing  
+- Personalization memory  
+- Clinician escalation  
+- Improved evaluation pipeline  
+- Voice signal analysis (detect cough, tremble, and other vocal health indicators)
 
 ---
 
