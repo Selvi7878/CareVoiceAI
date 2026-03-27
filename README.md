@@ -232,14 +232,14 @@ npm run dev
 ---
 ## 🚀 Live Demo
 
-🌐 **Try the App:**  
-👉 https://thankful-cliff-0f698610f.1.azurestaticapps.net/
+### 🌐 Try the App  
+👉 [Open CareVoice AI](https://thankful-cliff-0f698610f.1.azurestaticapps.net/)
 
-🎥 **Video Demo:**  
-👉 https://drive.google.com/file/d/1r9cPx7A9S_p6LJdrwDl1gbsyWayhqzH_/view?usp=drive_link
+### 🎥 Video Demo  
+👉 [Watch Demo](https://drive.google.com/file/d/1r9cPx7A9S_p6LJdrwDl1gbsyWayhqzH_/view?usp=drive_link)
 
-📊 **Slides:**  
-👉 https://github.com/Selvi7878/CareVoiceAI/blob/main/backend/docs/CareVoice_AI_Hackathon_March_2026.pdf
+### 📊 Slides  
+👉 [View CareVoice AI Hackathon Deck](https://github.com/Selvi7878/CareVoiceAI/blob/main/backend/docs/CareVoice_AI_Hackathon_March_2026.pdf)
 ---
 
 ## Try It Live
